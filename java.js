@@ -1,7 +1,16 @@
-let input = prompt('Введите число')
-let arr = Array(input)  
-let string = Array.toString(arr)
-let newstring = string.split(',')
-console.log(newstring);
+function addItem(){
+    const inputField = document.getElementById('inputField');
+    const inputValue = inputField.value.trim()
 
+    if(inputField !== ''){
+        const displayArea = document.getElementById("displayArea");
+        const newArea = document.createElement('div')
+        newArea.className = 'item';
+        newArea.textContent = inputValue;
 
+        displayArea.appendChild(newArea);
+
+        inputField.value = '';
+
+    }
+}

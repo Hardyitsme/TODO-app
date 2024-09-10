@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>ToDo-List</title>
+<link rel="stylesheet" href="/style.css">
 </head>
 <body>
 <header>
@@ -12,67 +13,17 @@
 
 <main>
 <div class="form">
-<input placeholder="Напиши что-нибудь" />
-<button>ADD</button>
+    <input type="text" id="inputField" placeholder="Напиши что-нибудь">
+<button onclick="addItem()">ADD</button>
 </div>
 
 <div class="box">
-<h1>Бицепс делат</h1>
-<h1>Пресс качат</h1>
+<div id="displayArea"></div>
 </div>
 </main>
 
-<script src="/script.js"></script>
+<script src="/java.js"></script>
 
-<style>
-header {
-display: flex;
-justify-content: center;
-align-items: center;
-color: white;
-}
 
-main {
-display: flex;
-flex-direction: column;
-gap: 10px;
-justify-content: center;
-align-items: center;
-}
-
-.box {
-box-sizing: border-box;
-height: 70vh;
-width: 70vh;
-background-color: white;
-}
-
-body {
-background-color: rgb(69, 69, 173);
-}
-
-.form {
-display: flex;
-gap: 10px;
-}
-
-button {
-background-color: blue;
-font-size: 30px;
-color: white;
-}
-
-input {
-font-size: 30px;
-border-radius: 10px;
-border: none;
-outline: none;
-}
-
-.title {
-font-size: 40px;
-margin: 0;
-}
-</style>
 </body>
 </html>
