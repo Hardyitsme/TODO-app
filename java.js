@@ -14,16 +14,14 @@ function clearInput() {
 }
 
 function formatDate(date) {
-  // Получаем день, месяц и год
-  const day = date.getDate().toString().padStart(2, '0');
-  const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Месяцы начинаются с 0
+  const minut = date.getMinutes().toString().padStart(2, "0");
+  const hour = date.getHours().toString();
+  const day = date.getDate().toString().padStart(2, "0");
+  const month = (date.getMonth() + 1).toString().padStart(2, "0");
   const year = date.getFullYear();
 
-  // Форматируем строку
-  return `${day}-${month}-${year}`;
+  return `${hour}:${minut} ${day}-${month}-${year}`;
 }
-
-
 
 function addItem(itemText) {
   const newItem = document.createElement("div");
@@ -32,21 +30,19 @@ function addItem(itemText) {
 
   displayArea.appendChild(newItem);
 
+  const dateItem = document.createElement("div");
+  dateItem.className = "date-item";
 
-  const dateItem = document.createElement('div')
-  dateItem.className = 'date-item'
- 
   const currentDate = new Date();
-  dateItem.textContent = formatDate(currentDate)
- 
+  dateItem.textContent = formatDate(currentDate);
 
-  newItem.appendChild(dateItem)
+  newItem.appendChild(dateItem);
 
-  const deleteButton = document.createElement('button')
+  const deleteButton = document.createElement("button");
   deleteButton.className = "delete-item";
-  deleteButton.textContent = ('Delete');
+  deleteButton.textContent = "Delete";
 
-  newItem.appendChild(deleteButton)
+  newItem.appendChild(deleteButton);
 
   deleteButton.addEventListener("click", function () {
     newItem.remove();
@@ -74,6 +70,3 @@ document.addEventListener("keydown", (e) => {
     }
   }
 });
-
-
-
