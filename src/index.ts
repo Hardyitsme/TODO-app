@@ -1,34 +1,27 @@
+import { formatDate } from "./utils/formatDate";
+import "./styles.css";
+
 const displayArea = document.getElementById("displayArea");
 
 function getInputValue() {
-  const inputField = document.getElementById("inputField");
+  const inputField = document.getElementById("inputField") as HTMLInputElement;
   const inputValue = inputField.value.trim();
 
   return inputValue;
 }
 
 function clearInput() {
-  const inputField = document.getElementById("inputField");
+  const inputField = document.getElementById("inputField") as HTMLInputElement;
 
   inputField.value = "";
 }
 
-function formatDate(date) {
-  const minut = date.getMinutes().toString().padStart(2, "0");
-  const hour = date.getHours().toString();
-  const day = date.getDate().toString().padStart(2, "0");
-  const month = (date.getMonth() + 1).toString().padStart(2, "0");
-  const year = date.getFullYear();
-
-  return `${hour}:${minut} ${day}-${month}-${year}`;
-}
-
-function addItem(itemText) {
+function addItem(itemText: string) {
   const newItem = document.createElement("div");
   newItem.className = "task-item";
   newItem.textContent = itemText;
 
-  displayArea.appendChild(newItem);
+  displayArea?.appendChild(newItem);
 
   const dateItem = document.createElement("div");
   dateItem.className = "date-item";
@@ -51,7 +44,7 @@ function addItem(itemText) {
 
 const addButton = document.querySelector("button");
 
-addButton.addEventListener("click", function () {
+addButton?.addEventListener("click", function () {
   const inputValue = getInputValue();
 
   if (inputValue.length) {
