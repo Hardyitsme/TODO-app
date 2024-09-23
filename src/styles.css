@@ -9,39 +9,38 @@ header {
 main {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 5px;
   justify-content: center;
   align-items: center;
 }
 
 .box {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
   box-sizing: border-box;
   height: 70vh;
   width: 70vh;
-  background-color: white;
-  border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  overflow-y: auto;
 }
 
 body {
-  background-color: rgb(69, 69, 173);
+  background-color: white;
   font-family: "Arial", sans-serif;
 }
 
-.form {
+.navbar {
   display: flex;
-  gap: 10px;
+  width: 100%;
 }
 
 button {
-  background-color: #1e90ff;
-  font-size: 20px;
+  background-color: rgb(100, 111, 238);
+  font-size: 1em;
   color: white;
   border: none;
   padding: 10px 20px;
-  border-radius: 10px;
+  border-radius: 7px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -65,44 +64,16 @@ input {
   margin: 0;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   text-align: center;
+  color: rgb(97, 101, 128);
 }
 
 #displayArea {
+  background-color: rgba(237, 237, 247, 1);
   font-size: 24px;
   color: #333;
-}
-
-.task-item {
-  padding: 10px;
-  margin-bottom: 10px;
-  background-color: #f0f8ff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.modal {
-  box-sizing: border-box;
-  height: 45%;
-  width: 45%;
-  position: absolute;
-  background-color: white;
-  border-radius: 20px;
-}
-.background {
-  box-sizing: border-box;
-  position: absolute;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  overflow-y: auto;
   height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-.modal_head {
-  display: flex;
-  justify-content: space-between;
-  margin: 20px;
-}
-.list {
-  margin: 20px;
 }

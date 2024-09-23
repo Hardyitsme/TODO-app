@@ -1,5 +1,9 @@
-import { formatDate } from "./utils/formatDate";
 import "./styles.css";
+
+
+import { openModal } from "./components/Modal/Modal";
+import { CreateItemForm } from "./components/CreateItemForm/CreateItemForm";
+import { createTodoListItem } from "./components/TaskItem/TaskItem";
 
 const displayArea = document.getElementById("displayArea");
 
@@ -16,41 +20,12 @@ function clearInput() {
   inputField.value = "";
 }
 
-function addItem(itemText: string) {
-  const newItem = document.createElement("div");
-  newItem.className = "task-item";
-  newItem.textContent = itemText;
-
-  displayArea?.appendChild(newItem);
-
-  const dateItem = document.createElement("div");
-  dateItem.className = "date-item";
-
-  const currentDate = new Date();
-  dateItem.textContent = formatDate(currentDate);
-
-  newItem.appendChild(dateItem);
-
-  const deleteButton = document.createElement("button");
-  deleteButton.className = "delete-item";
-  deleteButton.textContent = "Delete";
-
-  newItem.appendChild(deleteButton);
-
-  deleteButton.addEventListener("click", function () {
-    newItem.remove();
-  });
-}
-
 const addButton = document.querySelector("button");
 
 addButton?.addEventListener("click", function () {
-  const inputValue = getInputValue();
+  const newItem = CreateItemForm();
 
-  if (inputValue.length) {
-    addItem(inputValue);
-    clearInput();
-  }
+  openModal({ title: "Создание задачи", children: newItem });
 });
 
 document.addEventListener("keydown", (e) => {
@@ -58,7 +33,8 @@ document.addEventListener("keydown", (e) => {
     const inputValue = getInputValue();
 
     if (inputValue.length) {
-      addItem(inputValue);
+      const newItem = createTodoListItem(inputValue);
+      displayArea?.appendChild(newItem);
       clearInput();
     }
   }

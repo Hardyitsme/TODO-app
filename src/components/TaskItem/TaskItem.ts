@@ -1,11 +1,10 @@
-import { formatDate } from '../utils/formatDate.js';
+import { formatDate } from "../../utils/formatDate";
+import "./TaskItem.css";
 
-export function addItem(itemText: string, displayArea: HTMLElement | null) {
+export function createTodoListItem(itemText: string) {
   const newItem = document.createElement("div");
   newItem.className = "task-item";
   newItem.textContent = itemText;
-
-  displayArea?.appendChild(newItem);
 
   const dateItem = document.createElement("div");
   dateItem.className = "date-item";
@@ -24,5 +23,6 @@ export function addItem(itemText: string, displayArea: HTMLElement | null) {
   deleteButton.addEventListener("click", function () {
     newItem.remove();
   });
+
+  return newItem;
 }
-    
