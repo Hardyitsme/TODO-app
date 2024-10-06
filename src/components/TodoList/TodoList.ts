@@ -1,7 +1,8 @@
+import { getTodosItemLocal, saveTodosLocal } from "./saveTodosLocal";
 import { createTodoListItem } from "./TaskItem/TaskItem";
 
 
-interface TodoItem {
+export interface TodoItem {
   title: string;
   create_date: Date;
   description?: string;
@@ -11,25 +12,34 @@ interface TodoItem {
 
 type CreateTodoItemArgs = Omit<TodoItem, "isComplete" | "id">;
 
-const todos: TodoItem[] = [];
+let todos: TodoItem[] = getTodosItemLocal();
 
-export const renderTodos = () => {
+export const renderTodos = (todos: TodoItem[]) => {
   const displayArea = document.getElementById("displayArea");
   displayArea!.innerHTML = "";
 
   todos.forEach(function (todoItem) {
-    const newTodoItem = createTodoListItem(todoItem.title);
+    const newTodoItem = createTodoListItem(todoItem);
     displayArea?.appendChild(newTodoItem);
   });
+
+  saveTodosLocal(todos)
 };
+
+export const deleteTodoItem = (todoId: number) => {
+  todos = todos.filter((todo) => todo.id !== todoId)
+  renderTodos(todos)
+}
 
 export const addTodoListItem = (todo: CreateTodoItemArgs) => {
   todos.push({ ...todo, isComplete: false, id: todos.length + 1 });
-  renderTodos();
+  renderTodos(todos);
 };
 
 // const editTodoListItem = (id: string, newTodoArgs: TodoItem) => {
-//   const neededTodoIndex = todos.findIndex((todo) => todo.id === id);
-//   todos[neededTodoIndex] = newTodoArgs;
-//   renderTodos();
-// };
+  //   const neededTodoIndex = todos.findIndex((todo) => todo.id === id);
+  //   todos[neededTodoIndex] = newTodoArgs;
+  //   renderTodos();
+  // };
+  
+renderTodos(todos)
