@@ -1,7 +1,7 @@
-import { createTodoListItem } from "../TaskItem/TaskItem";
 
+import { closeModal } from "../Modal/Modal";
+import { addTodoListItem } from "../TodoList/TodoList";
 
-const displayArea = document.getElementById("displayArea");
 
 export function CreateItemForm() {
   const ItemForm = document.createElement("div");
@@ -10,6 +10,7 @@ export function CreateItemForm() {
   input.placeholder = "Введите название задачи";
   input.classList.add("input");
   ItemForm.appendChild(input);
+
 
   const inputDescription = document.createElement('input')
   inputDescription.placeholder = 'Укажите описание задачи'
@@ -23,10 +24,12 @@ export function CreateItemForm() {
   ItemForm.appendChild(AddButton);
 
   AddButton.addEventListener("click", function () {
-    console.log(input)
-    const newItem = createTodoListItem(input.value)
-
-    displayArea?.appendChild(newItem)
+    addTodoListItem({
+      title: input.value,
+      create_date: new Date,
+      description: inputDescription.value,
+    })
+    closeModal()
   });
 
   return ItemForm;

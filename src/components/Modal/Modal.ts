@@ -5,9 +5,14 @@ interface OpenModalArgs {
   children: HTMLElement;
 }
 
+export const closeModal = () => {
+  const Modal = document.querySelector(".modal-container")
+  Modal?.remove()
+};
+
 export function openModal(args: OpenModalArgs) {
   const ModalContainer = document.createElement("div");
-  ModalContainer.classList.add("container");
+  ModalContainer.classList.add("modal-container");
 
   const Modal = document.createElement("div");
   Modal.classList.add("modal");
@@ -31,13 +36,13 @@ export function openModal(args: OpenModalArgs) {
   const ModalBody = document.createElement("div");
   ModalBody.classList.add("modal_body");
 
-  ModalBody.appendChild(args.children)
+  ModalBody.appendChild(args.children);
 
   Modal.appendChild(ModalBody);
 
   document.body.appendChild(ModalContainer);
 
   button.addEventListener("click", function () {
-    ModalContainer.remove();
+    closeModal();
   });
 }
