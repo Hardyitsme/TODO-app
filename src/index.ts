@@ -1,13 +1,14 @@
 import "./styles.css";
 import { openModal } from "./components/Modal/Modal";
-import { CreateItemForm } from "./components/CreateItemForm/CreateItemForm";
+import { createItemForm } from "./components/CreateItemForm/CreateItemForm";
 
-const addButton: HTMLButtonElement | null = document.querySelector(".addButtonItem");
+const addButton: HTMLButtonElement | null =
+  document.querySelector(".addButtonItem");
 
 addButton?.addEventListener("click", function () {
-  const newItem = CreateItemForm();
+  const createItemFormHTML = createItemForm();
 
-  openModal({ title: "Создание задачи", children: newItem });
+  openModal({ title: "Создание задачи", children: createItemFormHTML });
 
-  addButton.blur()
+  addButton.blur();
 });

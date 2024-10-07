@@ -1,8 +1,11 @@
 import { closeModal } from "../Modal/Modal";
-import { addTodoListItem, deleteTodoItem } from "../TodoList/TodoList";
+import { addTodoListItem } from "../TodoList/TodoList";
 
-export function CreateItemForm() {
-  const ItemForm = document.createElement("div");
+import "./CreateItemForm.css";
+
+export function createItemForm() {
+  const ItemForm = document.createElement("form");
+  ItemForm.classList.add("itemForm");
 
   const input = document.createElement("input");
   input.placeholder = "Введите название задачи";
@@ -25,6 +28,7 @@ export function CreateItemForm() {
       create_date: new Date(),
       description: inputDescription.value,
     });
+
     closeModal();
   };
 

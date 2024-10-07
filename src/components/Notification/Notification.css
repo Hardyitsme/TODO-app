@@ -1,0 +1,24 @@
+.notification {
+  display: flex;
+  position: absolute;
+  background-color: red;
+
+  top: 0;
+  right: 0;
+  animation: prikol 3000ms forwards;
+  margin: 30px;
+}
+
+@keyframes prikol {
+  0% {
+    right: -40%;
+  }
+
+  50% {
+    right: 2%;
+  }
+
+  100% {
+    right: -40%;
+  }
+}

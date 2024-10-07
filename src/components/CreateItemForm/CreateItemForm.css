@@ -1,0 +1,12 @@
+.itemForm {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.input{
+  margin: 5px;
+}
+
+.input_Description{
+  margin: 5px;
+}

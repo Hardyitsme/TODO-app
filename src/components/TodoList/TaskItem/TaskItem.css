@@ -45,3 +45,19 @@
 .task-item-actions-wrapper-item:hover {
   background-color: #a7a7a7;
 }
+
+.task-item-checkbox {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 30px;
+}
+
+.checked {
+  text-decoration: line-through;
+}
+
+.wrapper {
+  display: flex;
+  gap: 14px;
+}
