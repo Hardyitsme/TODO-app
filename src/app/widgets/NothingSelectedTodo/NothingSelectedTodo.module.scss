@@ -1,0 +1,15 @@
+.img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.errorText {
+  margin-top: 20px;
+  font-size: 1.5em;
+  text-align: center;
+  color: #555;
+  font-weight: bold;
+  opacity: 0.8;
+}

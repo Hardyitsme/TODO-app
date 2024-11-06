@@ -49,7 +49,7 @@ export const $todos = createStore<TodoItemModel[]>(initialValue)
       title,
       description,
       create_date: new Date(),
-      progress_type: ProgressTypes.OPEN,
+      progress_type: ProgressTypes.IN_DEVELOPMENT,
       id: newId,
     };
     const updatedTodos = [...todos, newTodo];

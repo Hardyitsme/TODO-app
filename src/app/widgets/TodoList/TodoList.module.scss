@@ -1,5 +1,4 @@
 .root {
-  background-color: rgba(237, 237, 247, 1);
   font-size: 24px;
   color: #333;
   border-radius: 10px;
@@ -7,4 +6,16 @@
   padding: 20px;
   overflow-y: auto;
   height: 100%;
+}
+
+.todoList {
+  font-size: 24px;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  overflow-y: auto;
+  height: 100%;
+  background-color: #fff; 
+  width: 74vh;
 }

@@ -1,43 +1,31 @@
-.box {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-  box-sizing: border-box;
-  height: 70vh;
-  width: 70vh;
-  margin: 0 auto;
-}
-
-.navbar {
-  display: flex;
+.root {
   width: 100%;
-}
+  height: 100%;
 
-main {
   display: flex;
-  flex-direction: column;
-  gap: 5px;
   justify-content: center;
   align-items: center;
 }
 
 .loading {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
   width: 80px;
   height: 100px;
-  margin: calc(100vh / 2 - 300px) auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .block {
   position: relative;
+
+  width: 12px;
+  height: 12px;
+  
   box-sizing: border-box;
   float: left;
   margin: 0 10px 10px 0;
-  width: 12px;
-  height: 12px;
   border-radius: 3px;
   background: black;
 }

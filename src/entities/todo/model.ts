@@ -1,9 +1,6 @@
 export enum ProgressTypes {
-  CANCELED = "CANCELED",
   CLOSE = "CLOSE",
   IN_DEVELOPMENT = "IN_DEVELOPMENT",
-  OPEN = "OPEN",
-  READY_FOR_UI_TEST = "READY_FOR_UI_TEST",
   PAUSED = "PAUSED",
 }
 

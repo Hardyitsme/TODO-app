@@ -1,0 +1,49 @@
+.baseHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  padding-inline: 48px;
+  background-color: #4096ff;
+  color: #fff;
+}
+
+.menu {
+  flex: 1;
+  min-width: 0;
+}
+
+.footer {
+  text-align: center;
+  color: #fff;
+  background-color: #4096ff;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.navbar {
+  display: flex;
+  width: 100%;
+  padding: 15px;
+}
+
+.todo_list_title{
+  font-family: 'Arial', sans-serif; 
+  font-size: 36px; 
+  font-weight: bold; 
+  color: #0b4476; 
+  text-align: center;
+  margin: 20px 0;
+}
+
+.menuText {
+  white-space: normal;
+  overflow-wrap: break-word;
+  
+}
