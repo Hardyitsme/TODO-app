@@ -7,7 +7,8 @@ import { CreateTodoWidget } from "../../widgets/CreateTodo/CreateTodoWidget";
 import { Loading } from "../../widgets/Loading/Loading";
 import { useState } from "react";
 import { TodoDetailPage } from "../TodoDetailPage/TodoDetailPage";
-import { NothingSelectedTodo } from "../../widgets/nothingSelectedTodo/NothingSelectedTodo";
+import { NothingSelectedTodo } from "../../widgets/NothingSelectedTodo/NothingSelectedTodo";
+
 
 export const MainPage = () => {
   const [pickedTodoId, setPickedTodoId] = useState<null | string>(null);
