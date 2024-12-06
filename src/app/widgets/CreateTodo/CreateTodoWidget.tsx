@@ -4,6 +4,7 @@ import styles from "./CreateTodoWidget.module.scss";
 import { createTodo } from "../../../entities/todo/store";
 
 
+// TODO: убрать этот компонент и сделать создание задачи в том навбаре
 export const CreateTodoWidget = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");

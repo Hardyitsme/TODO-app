@@ -3,14 +3,11 @@ import { createEffect, createEvent, createStore } from "effector";
 import { ProgressTypes, TodoItemModel } from "./model";
 import { todoApi } from "./api";
 
+
 const initialValue: TodoItemModel[] = [];
 
 export const deleteTodo = createEvent<string>();
-export const editTodo = createEvent<{
-  title: string;
-  description: string;
-  todoId: string;
-}>();
+export const editTodo = createEvent<TodoItemModel>();
 
 export const createTodo = createEvent<{
   title: string;
@@ -33,11 +30,12 @@ export const $todos = createStore<TodoItemModel[]>(initialValue)
     todoApi.saveTodos(updatedTodos);
     return updatedTodos;
   })
-  .on(editTodo, (todos, { title, description, todoId }) => {
+  .on(editTodo, (todos, newTodo) => {
     const updatedTodos = todos.map((todo) => {
-      if (todo.id === todoId) {
-        return { ...todo, title, description };
+      if (todo.id === newTodo.id) {
+        return { ...todo, ...newTodo };
       }
+
       return todo;
     });
     todoApi.saveTodos(updatedTodos);
@@ -51,6 +49,7 @@ export const $todos = createStore<TodoItemModel[]>(initialValue)
       create_date: new Date(),
       progress_type: ProgressTypes.IN_DEVELOPMENT,
       id: newId,
+      critical_level: 2,
     };
     const updatedTodos = [...todos, newTodo];
     todoApi.saveTodos(updatedTodos);

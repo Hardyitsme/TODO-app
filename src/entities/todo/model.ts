@@ -10,4 +10,5 @@ export interface TodoItemModel {
   description: string;
   progress_type: ProgressTypes;
   id: string;
+  critical_level: number;
 }

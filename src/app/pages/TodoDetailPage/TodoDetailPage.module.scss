@@ -1,23 +1,28 @@
 .todoDetailContainer {
   padding: 24px;
+
   background-color: #ffffff;
-  border-radius: 12px;
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+
+  border-radius: 12px;
   max-width: 600px;
-  margin: 0 auto;
 }
 
 .todoTitle {
   font-size: 28px;
   font-weight: bold;
+
   margin-bottom: 20px;
+
   color: #333;
+
   display: flex;
   align-items: center;
 }
 
 .todoTitle::before {
   content: "📝";
+
   font-size: 28px;
   margin-right: 10px;
 }
@@ -25,8 +30,11 @@
 .todoSection {
   margin-bottom: 20px;
   padding: 16px;
+
   background-color: #f3f4f6;
+
   border-radius: 8px;
+
   display: flex;
   flex-direction: column;
 }
@@ -34,40 +42,51 @@
 .todoSectionTitle {
   font-size: 18px;
   font-weight: 600;
+
   color: #444;
+
   margin-bottom: 6px;
+
   display: flex;
   align-items: center;
 }
 
 .todoSectionTitle::before {
   content: "📅";
+
   font-size: 18px;
   margin-right: 8px;
+
   color: #007bff;
 }
 
 .todoStatus {
   font-size: 18px;
-  color: #28a745;
   font-weight: 500;
+
+  color: #28a745;
 }
 
 .todoDescription {
   font-size: 16px;
-  color: #666;
   line-height: 1.5;
+
+  color: #666;
 }
 
 .todoStatus::before {
   content: "📌";
+
   font-size: 16px;
   margin-right: 8px;
 }
 
 .footer {
   text-align: center;
+
   margin-top: 24px;
   font-size: 14px;
+
   color: #aaa;
 }
+

@@ -6,12 +6,11 @@ import Sider from "antd/es/layout/Sider";
 import { CreateTodoWidget } from "../../widgets/CreateTodo/CreateTodoWidget";
 import { Loading } from "../../widgets/Loading/Loading";
 import { useState } from "react";
-import { TodoItemModel } from "../../../entities/todo/model";
 import { TodoDetailPage } from "../TodoDetailPage/TodoDetailPage";
-import { NothingSelectedTodo } from "../../widgets/NothingSelectedTodo/NothingSelectedTodo";
+import { NothingSelectedTodo } from "../../widgets/nothingSelectedTodo/NothingSelectedTodo";
 
 export const MainPage = () => {
-  const [pickedTodo, setPickedTodo] = useState<null | TodoItemModel>(null);
+  const [pickedTodoId, setPickedTodoId] = useState<null | string>(null);
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -38,17 +37,24 @@ export const MainPage = () => {
           ) : (
             <Menu
               mode="inline"
-              defaultSelectedKeys={["1"]}
-              defaultOpenKeys={["sub1"]}
               style={{ height: "100%" }}
-              items={todos.map((item, index) => ({
-                key: item.id,
-                label: <span className={styles.menuText}> {item.title} </ span >,
-                onClick: (few) =>
-                  setPickedTodo(
-                    todos.find((todo) => todo.id === few.key) ?? null
+              items={[
+                ...todos.map((item) => ({
+                  key: item.id,
+                  label: (
+                    <span className={styles.menuText}> {item.title} </span>
                   ),
-              }))}
+                  onClick: (selectedTodo: any) =>
+                    setPickedTodoId(
+                      todos.find((todo) => todo.id === selectedTodo.key)?.id ??
+                        null
+                    ),
+                })),
+                {
+                  key: "add",
+                  label: "Добавить задачу",
+                },
+              ]}
             />
           )}
         </Sider>
@@ -60,8 +66,8 @@ export const MainPage = () => {
                 <CreateTodoWidget />
               </div>
 
-              {pickedTodo ? (
-                <TodoDetailPage todo={pickedTodo} />
+              {pickedTodoId ? (
+                <TodoDetailPage todoId={pickedTodoId} />
               ) : (
                 <NothingSelectedTodo />
               )}
